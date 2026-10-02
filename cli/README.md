@@ -99,11 +99,11 @@ Agents wake on a schedule, check work, and act. Delegation flows up and down the
 <tr>
 <td align="center">
 <h3>💰 Cost Control</h3>
-Monthly budgets per agent. When they hit the limit, they stop. No runaway costs.
+Configurable budget policies can pause an agent, project, or company and cancel tracked work when a hard-stop threshold is reached. Enforcement uses recorded cost events; it is not a guarantee against provider-side overages.
 </td>
 <td align="center">
 <h3>🏢 Multi-Company</h3>
-One deployment, many companies. Complete data isolation. One control plane for your portfolio.
+One deployment can host multiple company scopes. Application authorization and data access are company-scoped; this alone does not establish complete tenant isolation.
 </td>
 <td align="center">
 <h3>🎫 Ticket System</h3>
@@ -147,7 +147,7 @@ Paperclip handles the hard orchestration details correctly.
 
 |                                   |                                                                                                               |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| **Atomic execution.**             | Task checkout and budget enforcement are atomic, so no double-work and no runaway spend.                      |
+| **Execution and budgets.**         | Task coordination and budget controls help limit duplicate work and excess spend; behavior depends on configured policies and runtime/provider timing.                      |
 | **Persistent agent state.**       | Agents resume the same task context across heartbeats instead of restarting from scratch.                     |
 | **Runtime skill injection.**      | Agents can learn Paperclip workflows and project context at runtime, without retraining.                      |
 | **Governance with rollback.**     | Approval gates are enforced, config changes are revisioned, and bad changes can be rolled back safely.        |
@@ -211,7 +211,7 @@ Locally, a single Node.js process manages an embedded Postgres and local file st
 If you're a solo-entreprenuer you can use Tailscale to access Paperclip on the go. Then later you can deploy to e.g. Vercel when you need it.
 
 **Can I run multiple companies?**
-Yes. A single deployment can run an unlimited number of companies with complete data isolation.
+A single deployment can host multiple companies, subject to database and host capacity. Application records are company-scoped; review the authorization and deployment controls before relying on tenant isolation.
 
 **How is Paperclip different from agents like OpenClaw or Claude Code?**
 Paperclip _uses_ those agents. It orchestrates them into a company — with org charts, budgets, goals, governance, and accountability.
