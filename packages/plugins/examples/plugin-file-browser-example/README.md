@@ -23,8 +23,12 @@ This is a repo-local example plugin for development. It should not be assumed to
 
 - `ui.sidebar.register` — project sidebar item
 - `ui.detailTab.register` — project detail tab
+- `ui.commentAnnotation.register` — comment file-link annotations
+- `ui.action.register` — comment context-menu action
 - `projects.read` — resolve project
 - `project.workspaces.read` — list workspaces and read paths for file access
+- `issue.comments.read` — read issue comments for file-link extraction
+- `plugin.state.read` — read persisted plugin state
 
 ## Worker
 
